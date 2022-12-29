@@ -1,3 +1,9 @@
+<?php 
+require "./vendor/autoload.php";
+use app\dao\HistoriaDAO;
+$historias = new HistoriaDAO;
+$resultado = $historias->read();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,5 +14,13 @@
 </head>
 <body>
     <h1>Pagina Inicial</h1>
+    <?php foreach($resultado as $r): ?>
+    <a href="./historias/historia.php?id=<?= $r['id']?>">
+    <p><?= $r['titulo']?></p>
+    <img src="imagens/<?= $r['foto'] ?>" alt="">
+    <p><?= strip_tags(str_replace("../", "",substr($r['corpo'], 0, 230)))?></p>
+    <hr>
+    </a>
+    <?php endforeach; ?>
 </body>
 </html>

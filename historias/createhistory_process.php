@@ -9,11 +9,10 @@ if(isset($_POST['titulo'])){
     $historiaDAO = new HistoriaDAO;
 
     $titulo = FILTER_INPUT(INPUT_POST, "titulo", FILTER_DEFAULT);
-    $corpo = FILTER_INPUT(INPUT_POST, "corpo", FILTER_DEFAULT);
     $categoria_id = FILTER_INPUT(INPUT_POST, "categoria_id", FILTER_DEFAULT);
 
     $historia->setTitulo($titulo);
-    $historia->setCorpo($corpo);
+    $historia->setCorpo($_POST['corpo']);
     $historia->setCategoria_id($categoria_id);
 }
 

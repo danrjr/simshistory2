@@ -35,10 +35,24 @@ class HistoriaDAO
         // header("Location: ../historias/historypainel.php");
     }
 
+    public function getHistoryById($id){
+        $stmt = Connection::getConn()->prepare("SELECT * FROM historias WHERE id = :id");
+        $stmt->bindValue(":id", $id);
+        $stmt->execute();
+        if($stmt->rowCount() > 0){
+            $dado = $stmt->fetch(PDO::FETCH_ASSOC);
+            return $dado;
+        }
+        else{
+            return false;
+        }
+    }
+
     public function delete($id){
         $stmt = Connection::getConn()->prepare("DELETE FROM historias WHERE id = :id");
         $stmt->bindValue(":id", $id);
         $stmt->execute();
         header("Location: ../historias/historypainel.php");
     }
+
 }
