@@ -48,6 +48,13 @@ class HistoriaDAO
         }
     }
 
+    public function selectHistoryByCategory($id){
+        $stmt = Connection::getConn()->prepare("SELECT historias.id, historias.titulo, historias.foto, historias.corpo FROM historias RIGHT JOIN categorias_secundarias ON historias.categoria_id = categorias_secundarias.id WHERE historias.categoria_id = :id");
+        $stmt->bindValue(":id", $id);
+        $stmt->execute();
+        $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        return $result;
+    }
     public function delete($id){
         $stmt = Connection::getConn()->prepare("DELETE FROM historias WHERE id = :id");
         $stmt->bindValue(":id", $id);

@@ -6,7 +6,7 @@ use app\dao\CategoriaPrimariaDAO;
 $categoria = new CategoriaPrimariaDAO;
 
 if(!isset($_SESSION['id'])){
-    header("Location: ../index.php");
+    header("Location: ../admin/adminlogin.php");
 }
 
 $result = $categoria->read();

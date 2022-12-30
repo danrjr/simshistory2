@@ -21,4 +21,16 @@ class CategoriaSecundariaDAO
         $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
         return $result;
     }
+
+    public function selectSecondaryCategoryByPrimaryCategory($id){
+        $stmt = Connection::getConn()->prepare("SELECT categorias_secundarias.id, categorias_secundarias.titulo, categorias_secundarias.foto 
+        FROM categorias_secundarias 
+        RIGHT JOIN categorias_primarias 
+        ON categorias_secundarias.categoria_id = categorias_primarias.id 
+        WHERE categorias_secundarias.categoria_id = :id");
+        $stmt->bindValue(":id", $id);
+        $stmt->execute();
+        $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        return $result;
+    }
 }
