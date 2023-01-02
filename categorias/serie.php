@@ -20,9 +20,7 @@ if(isset($_GET['id'])){
 </head>
 <body>
     <?php foreach($result as $r): ?>
-        <p><?php echo $r['titulo'] ?></p>
-        <img src="../imagens/<?php echo $r['foto'] ?>" alt="">
-        <p><?php echo $r['corpo']?></p>
+        <a href="../historias/historia.php?id=<?= $r['id']?>"><?php echo $r['titulo']?></a>
     <?php endforeach; ?>
 </body>
 </html>
