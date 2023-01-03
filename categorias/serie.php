@@ -7,7 +7,6 @@ if(isset($_GET['id'])){
     $historia = new HistoriaDAO;
     $result = $historia->selectHistoryByCategory($id);
 }
-
 ?>
 
 <!DOCTYPE html>
@@ -24,3 +23,4 @@ if(isset($_GET['id'])){
     <?php endforeach; ?>
 </body>
 </html>
+

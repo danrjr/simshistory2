@@ -55,6 +55,12 @@ class HistoriaDAO
         $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
         return $result;
     }
+
+    public function getHistoryLimitBy6(){
+        $stmt = Connection::getConn()->query("SELECT * FROM historias ORDER BY id DESC LIMIT 6");
+        $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        return $result;
+    }
     public function delete($id){
         $stmt = Connection::getConn()->prepare("DELETE FROM historias WHERE id = :id");
         $stmt->bindValue(":id", $id);

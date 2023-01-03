@@ -78,7 +78,7 @@ header img{
 }
 
 .h-conteudo button{
-    width: 20%;
+    max-width: 20%;
     height: 3.125em;
     font-size: 0.8em;
     white-space: nowrap;
