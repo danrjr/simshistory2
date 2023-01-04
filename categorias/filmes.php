@@ -5,29 +5,7 @@ $categorias = new CategoriaSecundariaDAO;
 
 $result = $categorias->selectSecondaryCategoryByPrimaryCategory(1);
 ?>
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="../css/styles.css">
-</head>
-<body>
-<div class="above-header">
-        <p>The Sims Historias</p>
-</div>
-    <header>
-        <img src="https://www.alalasims.com/noticias/wp-content/uploads/2019/08/SIMS4_Plumbob_Primary_RGB.png" alt="">  
-      <nav class="navigation">
-            <ul><li><a href="filmes.php">Filmes</a></li></ul>
-            <ul><li><a href="novelas.php">Novelas</a></li></ul>
-            <ul><li><a href="series.php">Series</a></li></ul>
-            <ul><li><a href="realities.php">Reality Shows</a></li></ul>
-    </nav>
-</header>
+<?php include "../templates/header.php"?>
         <div class="c-container">
         <?php foreach($result as $r): ?>
             <div class="c-container-title">
@@ -36,6 +14,4 @@ $result = $categorias->selectSecondaryCategoryByPrimaryCategory(1);
             </div>
         <?php endforeach; ?>     
         </div>
-    <?php require "../templates/footer.php"?>
-</body>
-</html>
+<?php include "../templates/footer.php"?>

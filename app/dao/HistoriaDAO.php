@@ -61,6 +61,15 @@ class HistoriaDAO
         $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
         return $result;
     }
+
+    public function findHistoryBySearchBar($q){
+        $stmt = Connection::getConn()->prepare("SELECT * FROM historias WHERE titulo LIKE :q OR corpo LIKE :q");
+        $value = "%". $q . "%";
+        $stmt->bindValue(":q", $value);
+        $stmt->execute();
+        $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        return $result;
+    }
     public function delete($id){
         $stmt = Connection::getConn()->prepare("DELETE FROM historias WHERE id = :id");
         $stmt->bindValue(":id", $id);
