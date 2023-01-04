@@ -63,7 +63,7 @@ class HistoriaDAO
     }
 
     public function findHistoryBySearchBar($q){
-        $stmt = Connection::getConn()->prepare("SELECT * FROM historias WHERE titulo LIKE :q OR corpo LIKE :q ORDER BY id DESC LIMIT 10");
+        $stmt = Connection::getConn()->prepare("SELECT * FROM historias WHERE titulo LIKE :q OR corpo LIKE :q ORDER BY titulo ASC LIMIT 10");
         $value = "%". $q . "%";
         $stmt->bindValue(":q", $value);
         $stmt->execute();
@@ -72,7 +72,7 @@ class HistoriaDAO
             return $result;
         }
         else{
-            return false;
+            header("Location: 404.php");
         }
     }
     public function delete($id){

@@ -27,7 +27,8 @@ class CategoriaSecundariaDAO
         FROM categorias_secundarias 
         RIGHT JOIN categorias_primarias 
         ON categorias_secundarias.categoria_id = categorias_primarias.id 
-        WHERE categorias_secundarias.categoria_id = :id");
+        WHERE categorias_secundarias.categoria_id = :id
+        ORDER BY categorias_secundarias.titulo ASC");
         $stmt->bindValue(":id", $id);
         $stmt->execute();
         $result = $stmt->fetchAll(PDO::FETCH_ASSOC);

@@ -6,11 +6,16 @@
     text-decoration: none;
     list-style: none;
 }
-
+body{
+    background-color: #FAF9F6;
+}
 .above-header{
     width:100%;
     height: 6.25rem;
     
+}
+.above-header a{
+    color: black;
 }
 .above-header p{
     text-align: center;
@@ -127,4 +132,9 @@ footer p{
 .c-container-title a{
     color: black; 
     text-align: center;
+}
+
+.erro404{
+    width: 800px;
+    height: 768px;
 }

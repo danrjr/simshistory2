@@ -4,12 +4,13 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
     <link rel="stylesheet" type="text/css" href="http://localhost/simshistory2/css/styles.css"/>
     <title>Document</title>
 </head>
 <body>
 <div class="above-header">
-        <p>The Sims Historias</p>
+        <a href="http://localhost/simshistory2/index.php"><p>The Sims Historias</p></a>
 </div>
     <header>
         <img src="https://www.alalasims.com/noticias/wp-content/uploads/2019/08/SIMS4_Plumbob_Primary_RGB.png" alt="">  
@@ -20,9 +21,16 @@
             <ul><li><a href="http://localhost/simshistory2/categorias/realities.php">Reality Shows</a></li></ul>
     </nav>
     <form action="http://localhost/simshistory2/buscar.php" method="post">
-        <input type="text" required name="search" id="" placeholder="Encontrar...">
-        <input type="submit" value="Buscar">
+        <input type="text" name="search" id="search" placeholder="Encontrar...">
+        <input type="submit" id="buscar" value="Buscar">
     </form>
 </header>
 
-
+<script>
+    $(document).bind("keydown", function(event){
+    if(event.which == "13")
+   {
+      $("#buscar").click();
+    }
+});
+</script>
