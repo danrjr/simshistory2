@@ -20,8 +20,8 @@
             <ul><li><a href="http://localhost/simshistory2/categorias/series.php">Series</a></li></ul>
             <ul><li><a href="http://localhost/simshistory2/categorias/realities.php">Reality Shows</a></li></ul>
     </nav>
-    <form action="http://localhost/simshistory2/buscar.php" method="post">
-        <input type="text" name="search" id="search" placeholder="Encontrar...">
+    <form action="http://localhost/simshistory2/buscar.php?=search" method="get">
+        <input type="search" name="search" id="search" placeholder="Encontrar...">
         <input type="submit" id="buscar" value="Buscar">
     </form>
 </header>

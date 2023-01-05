@@ -75,6 +75,7 @@ class HistoriaDAO
             header("Location: 404.php");
         }
     }
+    
     public function delete($id){
         $stmt = Connection::getConn()->prepare("DELETE FROM historias WHERE id = :id");
         $stmt->bindValue(":id", $id);

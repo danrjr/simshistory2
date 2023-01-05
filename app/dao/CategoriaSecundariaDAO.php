@@ -22,6 +22,19 @@ class CategoriaSecundariaDAO
         return $result;
     }
 
+    public function selectTituloBySearchBar($q){
+        $stmt = Connection::getConn()->prepare("SELECT id as i, titulo as t, categoria_id as cid, foto as f FROM categorias_secundarias WHERE titulo LIKE :q");
+        $value = "%" . $q . "%";
+        $stmt->bindValue(":q", $value);
+        $stmt->execute();
+        if($stmt->rowCount() > 0){
+            $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            return $result;
+        }
+        else{
+            header("Location: 404.php");
+        }
+    }
     public function selectSecondaryCategoryByPrimaryCategory($id){
         $stmt = Connection::getConn()->prepare("SELECT categorias_secundarias.id, categorias_secundarias.titulo, categorias_secundarias.foto 
         FROM categorias_secundarias 
