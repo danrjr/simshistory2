@@ -56,9 +56,15 @@ class HistoriaDAO
         return $result;
     }
 
-    public function getHistoryLimitBy6(){
-        $stmt = Connection::getConn()->query("SELECT * FROM historias ORDER BY id DESC LIMIT 6");
+    public function getHistoryLimitSix($inicio, $limite){
+        $stmt = Connection::getConn()->query("SELECT * FROM historias ORDER BY id DESC LIMIT $inicio, $limite");
         $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        return $result;
+    }
+
+    public function countAllHistory(){
+        $stmt = Connection::getConn()->query("SELECT COUNT(*) FROM historias");
+        $result = $stmt->fetch(PDO::FETCH_ASSOC);
         return $result;
     }
 

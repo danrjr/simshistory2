@@ -2,7 +2,27 @@
 require "./vendor/autoload.php";
 use app\dao\HistoriaDAO;
 $historias = new HistoriaDAO;
-$resultado = $historias->getHistoryLimitBy6();
+$pagina = 1;
+if(isset($_GET['pagina'])){
+    $pagina = addslashes($_GET['pagina']);
+
+}
+if(!$pagina){
+    $pagina = 1;
+}
+
+$limite = 6;
+$inicio = ($pagina * $limite) - $limite; 
+
+$registros = $historias->countAllHistory();
+foreach($registros as $r){
+    $rollPaginas = ceil($r / $limite);
+}
+
+$paginas = $rollPaginas;
+
+$resultado = $historias->getHistoryLimitSix($inicio, $limite);
+
 ?>
 <?php include "templates/header.php"?>
 <div class="below-header">
@@ -21,6 +41,21 @@ $resultado = $historias->getHistoryLimitBy6();
         </div>
     </div>
     <?php endforeach; ?>
-    <?php include ("templates/footer.php") ?>
+    <div class="link-center">
+             <a href="?pagina">Primeira Pagina</a>
+
+            <?php if($pagina > 1): ?>
+                <a href="?pagina=<?= $pagina - 1 ?>"><<</a>
+            <?php endif; ?>
+            
+            <?php echo $pagina ?>
+
+            <?php if($pagina < $paginas): ?>
+            <a href="?pagina=<?= $pagina + 1 ?>">>></a>
+            <?php endif; ?>
+
+            <a href="?pagina=<?= $paginas ?>">Ultima Pagina</a>
+        </div>
+<?php include ("templates/footer.php") ?>
 
     

@@ -4,10 +4,10 @@ require "./vendor/autoload.php";
 use app\dao\CategoriaSecundariaDAO;
 use app\dao\HistoriaDAO;
 
-if(isset($_GET['search'])){
+if(isset($_GET['s'])){
     $historia = new HistoriaDAO();
     $categoria = new CategoriaSecundariaDAO();
-    $search = FILTER_INPUT(INPUT_GET, "search", FILTER_DEFAULT);
+    $search = FILTER_INPUT(INPUT_GET, "s", FILTER_DEFAULT);
     
     if(empty($search) && strlen($search) == 0){
         header("Location: index.php");

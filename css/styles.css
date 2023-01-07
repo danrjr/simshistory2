@@ -140,3 +140,25 @@ footer p{
     width: 800px;
     height: 768px;
 }
+
+.link-center{
+    margin: 20px 500px 50px 500px;
+}
+
+.link-center a{
+    text-align: center;
+    color: black;
+
+}
+
+.history-list{
+    margin: 0 auto;
+    width: 600px;
+    height: 300px;
+    padding: 30px;
+}
+
+.history-list a {
+    display: block;
+    color: black;
+}

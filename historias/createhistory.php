@@ -2,7 +2,7 @@
 require "../vendor/autoload.php";
 session_start();
 if(!isset($_SESSION['id'])){
-    header("Location: ../index.php");
+    header("Location: ../admin/adminlogin.php");
 }
 use app\dao\CategoriaSecundariaDAO;
 $categoria = new CategoriaSecundariaDAO;

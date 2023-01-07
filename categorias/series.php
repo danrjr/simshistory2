@@ -10,7 +10,7 @@ $result = $categorias->selectSecondaryCategoryByPrimaryCategory(4);
         <div class="c-container">
         <?php foreach($result as $r): ?>
             <div class="c-container-title">
-                <a href="../categorias/novela.php?id=<?php echo $r['id'] ?>"><?php echo $r['titulo']?></a>
+                <a href="../categorias/serie.php?id=<?php echo $r['id'] ?>"><?php echo $r['titulo']?></a>
                 <img src="../imagens/<?php echo $r['foto']?>" width="200px" height="250px" alt="" >
             </div>
         <?php endforeach; ?>     

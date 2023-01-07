@@ -5,7 +5,7 @@ use app\dao\HistoriaDAO;
 $historia = new HistoriaDAO;
 $cS = new CategoriaSecundariaDAO;
 
-$result = $cS->selectTituloBySearchBar("clotilde");
+$result = $cS->countSecondaryCategoryByPrimaryCategory(1);
 print_r($result);
 
 ?>
